@@ -1,0 +1,59 @@
+{
+  "name": "coder-tamagotchi",
+  "displayName": "Coder Tamagotchi",
+  "description": "Таймер кодера, помодоро и питомец, который живёт от вашей работы",
+  "version": "0.1.0",
+  "publisher": "simpleit",
+  "engines": { "vscode": "^1.80.0" },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./src/tamagotchi.js",
+  "contributes": {
+    "commands": [
+      { "command": "tamagotchi.hello", "title": "Tamagotchi: Hello World", "icon": "$(smiley)" },
+      { "command": "tamagotchi.feed", "title": "🍗 Покормить питомца" },
+      { "command": "tamagotchi.resetTimer", "title": "Tamagotchi: Сбросить таймер кодера" },
+      { "command": "tamagotchi.togglePomodoro", "title": "Tamagotchi: Старт/стоп помодоро" },
+      { "command": "tamagotchi.showStats", "title": "Tamagotchi: Статистика по дням" }
+    ],
+    "menus": {
+      "editor/title": [
+        { "command": "tamagotchi.hello", "group": "navigation" }
+      ],
+      "editor/context": [
+        { "command": "tamagotchi.hello", "group": "tamagotchi@1" },
+        { "command": "tamagotchi.feed", "group": "tamagotchi@2" }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        { "id": "tamagotchi", "title": "Питомец", "icon": "media/pet-icon.svg" }
+      ]
+    },
+    "views": {
+      "tamagotchi": [
+        { "type": "webview", "id": "tamagotchi.petView", "name": "Мой питомец" }
+      ]
+    },
+    "configuration": {
+      "title": "Coder Tamagotchi",
+      "properties": {
+        "tamagotchi.userName": {
+          "type": "string",
+          "default": "",
+          "description": "Имя для сообщения Hello, World!"
+        },
+        "tamagotchi.workMinutes": {
+          "type": "number",
+          "default": 1,
+          "description": "Длительность работы в помодоро (минуты)"
+        },
+        "tamagotchi.breakMinutes": {
+          "type": "number",
+          "default": 1,
+          "description": "Длительность отдыха (минуты)"
+        }
+      }
+    }
+  }
+}
