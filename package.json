@@ -1,34 +1,30 @@
 {
-  "name": "coder-timer",
-  "displayName": "Coder Timer",
-  "description": "Показывает в статус-баре время кодинга за сегодня",
+  "name": "pomodoro-timer",
+  "displayName": "Pomodoro Timer",
+  "description": "Таймер работы и отдыха с уведомлениями и статистикой по дням",
   "version": "0.1.0",
   "publisher": "simpleit",
   "engines": { "vscode": "^1.80.0" },
   "categories": ["Other"],
   "activationEvents": ["onStartupFinished"],
-  "main": "./src/coderTimer.js",
+  "main": "./src/pomodoroTimer.js",
   "contributes": {
     "commands": [
-      { "command": "coderTimer.hello", "title": "Coder Timer: Hello World", "icon": "$(smiley)" },
-      { "command": "coderTimer.reset", "title": "Coder Timer: Сбросить таймер" }
+      { "command": "pomodoro.toggle", "title": "Pomodoro: Старт/стоп" },
+      { "command": "pomodoro.showStats", "title": "Pomodoro: Статистика по дням" }
     ],
-    "menus": {
-      "editor/title": [
-        { "command": "coderTimer.hello", "group": "navigation" }
-      ],
-      "editor/context": [
-        { "command": "coderTimer.hello", "group": "coderTimer@1" },
-        { "command": "coderTimer.reset", "group": "coderTimer@2" }
-      ]
-    },
     "configuration": {
-      "title": "Coder Timer",
+      "title": "Pomodoro Timer",
       "properties": {
-        "coderTimer.userName": {
-          "type": "string",
-          "default": "Иван Иванов",
-          "description": "Имя для сообщения Hello, World!"
+        "pomodoro.workMinutes": {
+          "type": "number",
+          "default": 1,
+          "description": "Длительность работы (минуты). Для реального использования: 25"
+        },
+        "pomodoro.breakMinutes": {
+          "type": "number",
+          "default": 1,
+          "description": "Длительность отдыха (минуты). Для реального использования: 5"
         }
       }
     }
