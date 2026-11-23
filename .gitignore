@@ -1,0 +1,9 @@
+# Ignore Everything
+*
+
+# Do not Ignore Source Files
+!*.json
+!*.js
+
+# Do not ignore documentation
+!*.md
